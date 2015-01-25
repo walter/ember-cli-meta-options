@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-meta-options",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Allows for using meta tags to pass options to an app.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,14 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/walter/ember-cli-meta-options.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Walter McGinnis <web@mars-hq.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",

@@ -2,5 +2,8 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-cli-meta-options'
+  name: 'ember-cli-meta-options',
+  included: function(app) {
+    this._super.included(app);
+  }
 };
