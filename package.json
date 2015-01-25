@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-meta-options",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Allows for using meta tags to pass options to an app.",
   "directories": {
     "doc": "doc",
