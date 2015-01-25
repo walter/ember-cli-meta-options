@@ -1,8 +1,6 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
-console.log('options loaded');
-
 // copied and modified from http://ember.zone/handling-environment-data-with-ember-js/
 export function initialize(/* container, application */) {
   // Check to we have required optionsConfig, even if only {}
