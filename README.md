@@ -75,7 +75,7 @@ article with two properties called title and summary.
 
 ## Tests
 
-There acceptance tests that confirm the core featues work.
+There are now acceptance tests that confirm the core featues work.
 
 I'm happy to accept pull requests for unit tests of the initializer code though.
 
