@@ -75,12 +75,9 @@ article with two properties called title and summary.
 
 ## Tests
 
-There are no tests at this time!
+There acceptance tests that confirm the core featues work.
 
-My excuse is that I could not get the test harness for an ember-cli
-add-on to run without error.
-
-Advice or a pull request welcome!
+I'm happy to accept pull requests for unit tests of the initializer code though.
 
 ## Credits
 
