@@ -1,35 +1,31 @@
 import Ember from 'ember';
+import {module, test} from 'qunit';
 import startApp from '../helpers/start-app';
-
-Ember.Test.registerHelper( 'pauseTest', function () {
-  stop();
-  return new Ember.RSVP.Promise(function(){ });
-});
 
 var application;
 
 module('Acceptance: Options', {
-  setup: function() {
+  beforeEach: function() {
     application = startApp();
   },
-  teardown: function() {
+  afterEach: function() {
     Ember.run(application, 'destroy');
   }
 });
 
-test('simple property options should be loaded', function() {
+test('simple property options should be loaded', function(assert) {
   visit('/');
 
   andThen(function() {
-    equal(find('span.person').text(), 'Bob Dobbs');
+    assert.equal(find('span.person').text(), 'Bob Dobbs');
   });
 });
 
-test('nested object options should be loaded', function() {
+test('nested object options should be loaded', function(assert) {
   visit('/');
 
   andThen(function() {
-    equal(find('span.church-name').text(), 'Church of SubGenius');
-    equal(find('span.church-message').text(), 'Slack');
+    assert.equal(find('span.church-name').text(), 'Church of SubGenius');
+    assert.equal(find('span.church-message').text(), 'Slack');
   });
 });

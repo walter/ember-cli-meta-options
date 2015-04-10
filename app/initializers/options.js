@@ -49,7 +49,7 @@ export function initialize(/* container, application */) {
 
           // loop through nesting and create parent objects if necessary
           var currentObject = options;
-          if (parents.get('length') > 0 ) {
+          if (parents.length > 0 ) {
             parents.forEach(function(item, index) {
               if (!currentObject.hasOwnProperty(item)) {
                 currentObject[item] = Ember.Object.create();
@@ -58,7 +58,7 @@ export function initialize(/* container, application */) {
               currentObject = currentObject[item];
 
               // is this last parent set property value
-              if (parents.get('length') === index + 1) {
+              if (parents.length === index + 1) {
                 // Map the string values to actual types.
                 currentObject[propertyName] = _mapType(value);
               }
