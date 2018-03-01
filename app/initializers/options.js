@@ -37,7 +37,7 @@ export function initialize(/* container, application */) {
           var propertyName = nameParts.get('lastObject');
 
           // ignore first 3 parents parts in path, aka MODULE_PREFIX/initializers/options
-          var parentPathIgnoreUpTo = config.optionsConfig.parentPathIgnoreUpTo || 2;
+          var parentPathIgnoreUpTo = Ember.getWithDefault(config, 'optionsConfig.parentPathIgnoreUpTo', 2);
 
           // also skip actual propertyName
           var parents = nameParts.filter(function(item, index) {
