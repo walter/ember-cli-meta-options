@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-meta-options",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Use meta tags to pass your Ember.js app options.",
   "keywords": [
     "ember-addon"

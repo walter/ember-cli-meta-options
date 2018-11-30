@@ -80,7 +80,7 @@ I'm happy to accept pull requests for unit tests of the initializer code though.
 
 ## Credits
 
-Originally developed by [Walter Mcginnis](https://github.com/walter).
+Originally developed by [Walter Mcginnis](https://github.com/walter). Upgraded to Ember 3.5 by [Jiří Prokop](https://github.com/synaptiko).
 
 This ember-cli add-on was built as a part of widget work for http://askthem.io.
 
