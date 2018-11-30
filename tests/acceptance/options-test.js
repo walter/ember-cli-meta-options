@@ -1,31 +1,18 @@
-import Ember from 'ember';
-import {module, test} from 'qunit';
-import startApp from '../helpers/start-app';
+import { module, test } from 'qunit';
+import { visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-var application;
+module('Acceptance | options', function(hooks) {
+  setupApplicationTest(hooks);
 
-module('Acceptance: Options', {
-  beforeEach: function() {
-    application = startApp();
-  },
-  afterEach: function() {
-    Ember.run(application, 'destroy');
-  }
-});
-
-test('simple property options should be loaded', function(assert) {
-  visit('/');
-
-  andThen(function() {
-    assert.equal(find('span.person').text(), 'Bob Dobbs');
+  test('simple property options should be loaded', async function(assert) {
+    await visit('/');
+    assert.dom('span.person').hasText('Bob Dobbs');
   });
-});
 
-test('nested object options should be loaded', function(assert) {
-  visit('/');
-
-  andThen(function() {
-    assert.equal(find('span.church-name').text(), 'Church of SubGenius');
-    assert.equal(find('span.church-message').text(), 'Slack');
+  test('nested object options should be loaded', async function(assert) {
+    await visit('/');
+    assert.dom('span.church-name').hasText('Church of SubGenius');
+    assert.dom('span.church-message').hasText('Slack');
   });
 });

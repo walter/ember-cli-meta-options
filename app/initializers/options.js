@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import EmberObject, { getWithDefault } from '@ember/object';
+import EmberError from '@ember/error';
 import config from '../config/environment';
 
 // copied and modified from http://ember.zone/handling-environment-data-with-ember-js/
@@ -9,7 +11,7 @@ export function initialize(/* container, application */) {
     //   metaNamePrefix - default config.modulePrefix
     //   valueAttr - default 'content'
     //   parentPathIgnoreUpTo - index of number of parent parts in path to ignore, default 2
-    throw new Ember.Error("The application must be set up for options with optionsConfig, even if only {} for default config, in config/environment.js.");
+    throw new EmberError("The application must be set up for options with optionsConfig, even if only {} for default config, in config/environment.js.");
   }
 
   var OptionsReader = function OptionsReader() {
@@ -20,24 +22,24 @@ export function initialize(/* container, application */) {
       };
 
       // Grab all the meta tags from the DOM.
-      var metaTags = Ember.$("meta");
-      var options = Ember.Object.create();
+      var metaTags = document.getElementsByTagName("meta");
+      var options = EmberObject.create();
       var metaNamePrefix = config.optionsConfig.metaNamePrefix || config.modulePrefix;
-      var re = new RegExp(metaNamePrefix + '\/');
+      var re = new RegExp(metaNamePrefix + '/');
 
       // Process each of the discovered meta tags.
       for(var i=0; i < metaTags.length; i++) {
         var valueAttr = config.optionsConfig.valueAttr || 'content';
-        var key = Ember.$(metaTags[i]).attr('name');
-        var value = Ember.$(metaTags[i]).attr(valueAttr);
+        var key = metaTags[i].getAttribute('name');
+        var value = metaTags[i].getAttribute(valueAttr);
 
         // Does the meta tag start with our prefix?
         if (re.test(key)) {
-          var nameParts = Ember.A(key.split('/'));
+          var nameParts = A(key.split('/'));
           var propertyName = nameParts.get('lastObject');
 
           // ignore first 3 parents parts in path, aka MODULE_PREFIX/initializers/options
-          var parentPathIgnoreUpTo = Ember.getWithDefault(config, 'optionsConfig.parentPathIgnoreUpTo', 2);
+          var parentPathIgnoreUpTo = getWithDefault(config, 'optionsConfig.parentPathIgnoreUpTo', 2);
 
           // also skip actual propertyName
           var parents = nameParts.filter(function(item, index) {
@@ -52,7 +54,7 @@ export function initialize(/* container, application */) {
           if (parents.length > 0 ) {
             parents.forEach(function(item, index) {
               if (!currentObject.hasOwnProperty(item)) {
-                currentObject[item] = Ember.Object.create();
+                currentObject[item] = EmberObject.create();
               }
 
               currentObject = currentObject[item];

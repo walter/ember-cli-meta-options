@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 import config from '../config/environment';
 
-export default Ember.Controller.extend({
-  attrs: config.options
+export default Controller.extend({
+  options: config.options
 });

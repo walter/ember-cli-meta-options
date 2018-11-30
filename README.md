@@ -21,7 +21,7 @@ Example code to come, in the mean time you can email me if you have questions
 
 ## Installation
 
-    npm install --save-dev ember-cli-meta-options
+    ember install ember-cli-meta-options
 
 You'll then need to config the addon by adding this to your
 config/environment.js (only add from BEGIN to END, everything is
@@ -70,18 +70,17 @@ E.g.
 Would result in the options object having a nested object called
 article with two properties called title and summary.
 
-    { article: { title: "Example article", summary: "Blah, blah, blah"
- } }
+    { article: { title: "Example article", summary: "Blah, blah, blah" } }
 
 ## Tests
 
-There are now acceptance tests that confirm the core featues work.
+There are now acceptance tests that confirm the core features work.
 
 I'm happy to accept pull requests for unit tests of the initializer code though.
 
 ## Credits
 
-Originally developed by [Walter Mcginnis](https://github.com/walter).
+Originally developed by [Walter Mcginnis](https://github.com/walter). Upgraded to Ember 3.5 by [Jiří Prokop](https://github.com/synaptiko).
 
 This ember-cli add-on was built as a part of widget work for http://askthem.io.
 
